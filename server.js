@@ -3,6 +3,13 @@ const cors = require("cors");
 const morgan = require("morgan");
 const colors = require("colors");
 const dotenv = require("dotenv");
+const connectDB = require("./config/db");
+
+// env configurations
+dotenv.config();
+
+// mongodb connection
+connectDB();
 
 // rest object
 const app = express();
@@ -18,12 +25,6 @@ app.get("/", (req, res) => {
     message: "Node Server",
   });
 });
-
-// env configurations
-const result = dotenv.config();
-if (result.error) {
-  throw result.error;
-}
 
 // create variables of env file
 const PORT = process.env.PORT || 8080;

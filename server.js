@@ -10,6 +10,7 @@ dotenv.config();
 
 // routes import
 const userRoutes = require("./routes/userRoutes");
+const blogRoutes = require("./routes/blogRoutes");
 
 // mongodb connection
 connectDB();
@@ -24,6 +25,7 @@ app.use(morgan("dev"));
 
 // routes
 app.use("/api/v1/user", userRoutes);
+app.use("/api/v1/blog", blogRoutes); 
 
 // create variables of env file
 const PORT = process.env.PORT || 8080;
